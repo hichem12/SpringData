@@ -1,5 +1,8 @@
 package com.hichem.rtibi;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,12 @@ public class ProductDataApplicationTests {
 		product.setDesc("awesome");
 		product.setPrice(1000d);
 		productRepos.save(product);
+	}
+	@Test
+	public void testRead() {
+		Product product=productRepos.findOne(1);
+		assertNotNull(product);
+		assertEquals("iPhone", product.getName());
 	}
 
 }
