@@ -21,6 +21,7 @@ public class ProductDataApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
+	
 
 	@Test
 	public void testCreate() {
@@ -31,21 +32,30 @@ public class ProductDataApplicationTests {
 		product.setPrice(1000d);
 		productRepos.save(product);
 	}
-
 	@Test
 	public void testRead() {
 		Product product = productRepos.findOne(1);
 		assertNotNull(product);
 		assertEquals("iPhone", product.getName());
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<"+product.getDesc());
 	}
-
+	
 	@Test
 	public void testUpdate() {
 		Product product = productRepos.findOne(1);
-		product.setPrice(1200d);
+		product.setPrice(12200d);
 		productRepos.save(product);
 	}
-	/*
-	 * @Test public void testDelete() { productRepos.delete(1); }
-	 */
+
+	@Test
+	public void testDelete() {
+		if(productRepos.exists(1)) {
+			System.out.println("deleting a product:");
+			//productRepos.delete(1);
+			
+			
+		}
+		
+	}
+
 }
