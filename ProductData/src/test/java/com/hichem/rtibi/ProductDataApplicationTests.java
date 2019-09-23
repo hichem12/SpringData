@@ -65,9 +65,25 @@ public class ProductDataApplicationTests {
 	 */
 	@Test
 	public void findByNameTest() {
-		List<Product> products=productRepos.findByName("x");
-		products.forEach(p->System.out.println(p.getDesc()));
+		List<Product> products = productRepos.findByName("x");
+		products.forEach(p -> System.out.println(p.getDesc()));
 	}
 
+	@Test
+	public void testMultipleField() {
+		List<Product> products = productRepos.findByNameAndDesc("x", "x");
+		products.forEach(p -> System.out.println("finder by multiple field" + p.getPrice()));
+	}
 
+	@Test
+	public void testByPrice() {
+		List<Product> products = productRepos.findByPriceGreaterThanEqual(100d);
+		products.forEach(p -> System.out.println(p.getDesc()));
+	}
+
+	@Test
+	public void findBydescContainigTest() {
+		List<Product> products = productRepos.findByDescContains("a");
+		products.forEach(p -> System.out.println(p.getDesc()));
+	}
 }
