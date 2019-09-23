@@ -21,20 +21,28 @@ public class ProductDataApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
+
 	@Test
 	public void testCreate() {
-		Product product=new Product();
+		Product product = new Product();
 		product.setId(1);
 		product.setName("iPhone");
 		product.setDesc("awesome");
 		product.setPrice(1000d);
 		productRepos.save(product);
 	}
+
 	@Test
 	public void testRead() {
-		Product product=productRepos.findOne(1);
+		Product product = productRepos.findOne(1);
 		assertNotNull(product);
 		assertEquals("iPhone", product.getName());
 	}
 
+	@Test
+	public void testUpdate() {
+		Product product = productRepos.findOne(1);
+		product.setPrice(1200d);
+		productRepos.save(product);
+	}
 }
