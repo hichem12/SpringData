@@ -3,6 +3,8 @@ package com.hichem.rtibi;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +63,13 @@ public class ProductDataApplicationTests {
 	 * 
 	 * }
 	 */
+	@Test
+	public void findByNameTest() {
+		List<Product> products=productRepos.findByName("x");
+		for (Product product : products) {
+			System.out.println("product by name------------------------"+product.getDesc());
+		}
+	}
+
 
 }
