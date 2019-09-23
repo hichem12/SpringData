@@ -45,4 +45,7 @@ public class ProductDataApplicationTests {
 		product.setPrice(1200d);
 		productRepos.save(product);
 	}
+	/*
+	 * @Test public void testDelete() { productRepos.delete(1); }
+	 */
 }
