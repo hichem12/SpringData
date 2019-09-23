@@ -66,9 +66,7 @@ public class ProductDataApplicationTests {
 	@Test
 	public void findByNameTest() {
 		List<Product> products=productRepos.findByName("x");
-		for (Product product : products) {
-			System.out.println("product by name------------------------"+product.getDesc());
-		}
+		products.forEach(p->System.out.println(p.getDesc()));
 	}
 
 
