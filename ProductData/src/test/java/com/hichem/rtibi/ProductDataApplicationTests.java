@@ -53,14 +53,13 @@ public class ProductDataApplicationTests {
 		productRepos.save(product);
 	}
 
-	@Test
-	public void testDelete() {
-		if (productRepos.existsById(1)) {
-			System.out.println("deleting a product:");
-			productRepos.deleteById(1);
-
-		}
-
-	}
+	/*
+	 * @Test public void testDelete() { if (productRepos.existsById(1)) {
+	 * System.out.println("deleting a product:"); productRepos.deleteById(1);
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
 
 }
