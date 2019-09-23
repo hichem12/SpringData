@@ -8,7 +8,7 @@ import javax.persistence.TableGenerator;
 
 @Entity
 public class Employe {
-	@TableGenerator(allocationSize = 100,pkColumnName = "gen_name",valueColumnName = "gen_val",name = "employe_gen")
+	@TableGenerator(allocationSize = 100,table = "id_gen",pkColumnName = "gen_name",valueColumnName = "gen_val",name = "employe_gen")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY,generator = "employe_gen")
 	private int id;
