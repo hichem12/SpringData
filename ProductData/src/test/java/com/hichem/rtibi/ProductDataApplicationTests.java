@@ -17,11 +17,14 @@ import com.hichem.rtibi.repositories.ProductRepos;
 public class ProductDataApplicationTests {
 	@Autowired
 	private ProductRepos productRepos;
+	@Test
+	public void testcount() {
 
+		System.out.println("product count is =====================>>>>>>>>>>>>>>>>>>>>>"+productRepos.count());
+	}
 	@Test
 	public void contextLoads() {
 	}
-	
 
 	@Test
 	public void testCreate() {
@@ -32,14 +35,15 @@ public class ProductDataApplicationTests {
 		product.setPrice(1000d);
 		productRepos.save(product);
 	}
+
 	@Test
 	public void testRead() {
 		Product product = productRepos.findOne(1);
 		assertNotNull(product);
 		assertEquals("iPhone", product.getName());
-		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<"+product.getDesc());
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<" + product.getDesc());
 	}
-	
+
 	@Test
 	public void testUpdate() {
 		Product product = productRepos.findOne(1);
@@ -47,15 +51,14 @@ public class ProductDataApplicationTests {
 		productRepos.save(product);
 	}
 
-	@Test
-	public void testDelete() {
-		if(productRepos.exists(1)) {
-			System.out.println("deleting a product:");
-			//productRepos.delete(1);
-			
-			
-		}
-		
-	}
+	/*
+	 * @Test public void testDelete() { if(productRepos.exists(1)) {
+	 * System.out.println("deleting a product:"); //productRepos.delete(1);
+	 * 
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
 
 }
