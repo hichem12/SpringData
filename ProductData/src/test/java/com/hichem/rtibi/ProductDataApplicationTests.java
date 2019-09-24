@@ -156,4 +156,10 @@ public class ProductDataApplicationTests {
 		products.forEach(p -> System.out.println(p.getName()));
 	}
 
+	@Test
+	public void TestCombinePageAndSort() {
+		Pageable pageable = new PageRequest(0, 2, Direction.DESC, "price");
+		Iterable<Product> products = productRepos.findAll(pageable);
+		products.forEach(p -> System.out.println(p.getName()));
+	}
 }
