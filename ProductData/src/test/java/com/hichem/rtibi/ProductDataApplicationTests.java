@@ -122,52 +122,38 @@ public class ProductDataApplicationTests {
 		List<Product> products = productRepos.findByDescIsLike("%lg%");
 		products.forEach(p -> System.out.println(p.getDesc()));
 	}
+
 	@Test
 	public void TestIn() {
-		List<Product> products = productRepos.findByIdIn(Arrays.asList(1,2,3));
+		List<Product> products = productRepos.findByIdIn(Arrays.asList(1, 2, 3));
 		products.forEach(p -> System.out.println(p.getDesc()));
-		
+
 	}
+
 	@Test
 	public void TestPaging() {
-		Pageable pageable=new PageRequest(0, 3);
-		Page<Product> results=productRepos.findAll(pageable);
-		results.forEach(p->System.out.println(p.getName()));
+		Pageable pageable = new PageRequest(0, 3);
+		Page<Product> results = productRepos.findAll(pageable);
+		results.forEach(p -> System.out.println(p.getName()));
 	}
-	
+
 	@Test
 	public void testSorting() {
-	Iterable<Product> products=productRepos.findAll(new Sort("name"));
-	products.forEach(p->System.out.println(p.getName()));
+		Iterable<Product> products = productRepos.findAll(new Sort("name"));
+		products.forEach(p -> System.out.println(p.getName()));
 	}
+
 	@Test
 	public void testSortingDirection() {
-		Iterable<Product> products=productRepos.findAll(new Sort(Direction.DESC, "name","price"));
-		products.forEach(p->System.out.println(p.getName()));
+		Iterable<Product> products = productRepos.findAll(new Sort(Direction.DESC, "name", "price"));
+		products.forEach(p -> System.out.println(p.getName()));
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@Test
+	public void testSortingDirectionByMultipleProperties() {
+		Iterable<Product> products = productRepos
+				.findAll(new Sort(new Sort.Order(Direction.DESC, "name"), new Sort.Order("price")));
+		products.forEach(p -> System.out.println(p.getName()));
+	}
+
 }
