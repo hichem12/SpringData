@@ -142,7 +142,7 @@ public class ProductDataApplicationTests {
 	}
 	@Test
 	public void testSortingDirection() {
-		Iterable<Product> products=productRepos.findAll(new Sort(Direction.DESC, "name"));
+		Iterable<Product> products=productRepos.findAll(new Sort(Direction.DESC, "name","price"));
 		products.forEach(p->System.out.println(p.getName()));
 	}
 	
