@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.hichem.rtibi.entities.Product;
@@ -133,9 +135,16 @@ public class ProductDataApplicationTests {
 		results.forEach(p->System.out.println(p.getName()));
 	}
 	
-	
-	
-	
+	@Test
+	public void testSorting() {
+	Iterable<Product> products=productRepos.findAll(new Sort("name"));
+	products.forEach(p->System.out.println(p.getName()));
+	}
+	@Test
+	public void testSortingDirection() {
+		Iterable<Product> products=productRepos.findAll(new Sort(Direction.DESC, "name"));
+		products.forEach(p->System.out.println(p.getName()));
+	}
 	
 	
 	
