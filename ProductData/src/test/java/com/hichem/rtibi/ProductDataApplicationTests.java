@@ -98,9 +98,22 @@ public class ProductDataApplicationTests {
 		List<Product> products = productRepos.findByPriceGreaterThan(100d);
 		products.forEach(p -> System.out.println(p.getDesc()));
 	}
+
 	@Test
 	public void TestContaining() {
 		List<Product> products = productRepos.findByDescContaining("a");
+		products.forEach(p -> System.out.println(p.getDesc()));
+	}
+
+	@Test
+	public void TestisLikeDesc() {
+		List<Product> products = productRepos.findByDescIsLike("%lg%");
+		products.forEach(p -> System.out.println(p.getDesc()));
+	}
+
+	@Test
+	public void TestLikeDesc() {
+		List<Product> products = productRepos.findByDescIsLike("%lg%");
 		products.forEach(p -> System.out.println(p.getDesc()));
 	}
 }

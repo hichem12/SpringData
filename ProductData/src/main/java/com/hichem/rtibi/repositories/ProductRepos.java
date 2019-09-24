@@ -22,4 +22,8 @@ public interface ProductRepos extends CrudRepository<Product, Integer> {
 
 	List<Product> findByDescContaining(String desc);
 
+	List<Product> findByDescIsLike(String desc);
+
+	List<Product> findByDescLike(String desc);
+
 }
