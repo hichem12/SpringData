@@ -162,4 +162,12 @@ public class ProductDataApplicationTests {
 		Iterable<Product> products = productRepos.findAll(pageable);
 		products.forEach(p -> System.out.println(p.getName()));
 	}
+
+	@Test
+	public void TestPageCustom() {
+		Pageable pageable = new PageRequest(1, 2);
+		List<Product> products = productRepos.findByIdIn(Arrays.asList(1, 2, 3, 4), pageable);
+		products.forEach(p -> System.out.println(p.getName()));
+
+	}
 }
