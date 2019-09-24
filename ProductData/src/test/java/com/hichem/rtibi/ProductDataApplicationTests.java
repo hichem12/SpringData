@@ -86,4 +86,17 @@ public class ProductDataApplicationTests {
 		List<Product> products = productRepos.findByDescContains("a");
 		products.forEach(p -> System.out.println(p.getDesc()));
 	}
+
+	@Test
+	public void TestBetween() {
+		List<Product> products = productRepos.findByPriceBetween(100d, 1500d);
+		products.forEach(p -> System.out.println(p.getDesc()));
+	}
+
+	@Test
+	public void TestGreatherThan() {
+		List<Product> products = productRepos.findByPriceGreaterThan(100d);
+		products.forEach(p -> System.out.println(p.getDesc()));
+	}
+
 }
