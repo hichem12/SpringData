@@ -3,6 +3,7 @@ package com.hichem.rtibi;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -114,6 +115,11 @@ public class ProductDataApplicationTests {
 	@Test
 	public void TestLikeDesc() {
 		List<Product> products = productRepos.findByDescIsLike("%lg%");
+		products.forEach(p -> System.out.println(p.getDesc()));
+	}
+	@Test
+	public void TestIn() {
+		List<Product> products = productRepos.findByIdIn(Arrays.asList(1,2,3));
 		products.forEach(p -> System.out.println(p.getDesc()));
 	}
 }

@@ -26,4 +26,6 @@ public interface ProductRepos extends CrudRepository<Product, Integer> {
 
 	List<Product> findByDescLike(String desc);
 
+	List<Product> findByIdIn(List<Integer> ids);
+
 }
