@@ -10,6 +10,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.hichem.rtibi.entities.Product;
@@ -121,5 +124,41 @@ public class ProductDataApplicationTests {
 	public void TestIn() {
 		List<Product> products = productRepos.findByIdIn(Arrays.asList(1,2,3));
 		products.forEach(p -> System.out.println(p.getDesc()));
+		
 	}
+	@Test
+	public void TestPaging() {
+		Pageable pageable=new PageRequest(0, 3);
+		Page<Product> results=productRepos.findAll(pageable);
+		results.forEach(p->System.out.println(p.getName()));
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

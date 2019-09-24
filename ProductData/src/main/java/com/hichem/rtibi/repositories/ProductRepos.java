@@ -1,13 +1,12 @@
 package com.hichem.rtibi.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.hichem.rtibi.entities.Product;
-import java.lang.String;
-import java.util.List;
-import java.lang.Double;
 
-public interface ProductRepos extends CrudRepository<Product, Integer> {
+public interface ProductRepos extends PagingAndSortingRepository<Product, Integer> {
 	List<Product> findByName(String name);
 
 	List<Product> findByNameAndDesc(String name, String desc);
