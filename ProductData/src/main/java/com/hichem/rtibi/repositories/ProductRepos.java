@@ -20,4 +20,6 @@ public interface ProductRepos extends CrudRepository<Product, Integer> {
 
 	List<Product> findByPriceGreaterThan(Double price);
 
+	List<Product> findByDescContaining(String desc);
+
 }
